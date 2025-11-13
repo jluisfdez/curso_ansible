@@ -8,7 +8,7 @@ Creando el directorio y el fichero y poniendole los permisos adecuados
 
 En el servidor se crea el inventario /etc/ansible/hosts
 localhost ansible_connection=local
-192.168.18.76
+192.168.18.76 ansible_user=jluis
 
 y se prueba 
 ansible 192.168.18.76 -u jluis -m ping 
