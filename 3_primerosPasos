@@ -1,0 +1,15 @@
+Se crea el par de claves privada publica.
+
+En el servidor de ansible:
+root:@debchrom: # ssh-keygen
+
+Se copia el /root/.ssh/id_rsa.pub a jluis@192.1678.18.76:/home/jluis/.ssh/authorized_keys
+Creando el directorio y el fichero y poniendole los permisos adecuados
+
+En el servidor se crea el inventario /etc/ansible/hosts
+localhost ansible_connection=local
+192.168.18.76
+
+y se prueba 
+ansible 192.168.18.76 -u jluis -m ping 
+y da OK (pong)
