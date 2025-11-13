@@ -15,3 +15,8 @@ localhost ansible_connection=local
 y se prueba 
 ansible 192.168.18.76 -u jluis -m ping 
 y da OK (pong)
+
+La prueba
+ansible all --become -a "id"
+da error en el 102 pq el usuario joseluis pide clave...
+
