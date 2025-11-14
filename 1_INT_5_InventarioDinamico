@@ -1,0 +1,7 @@
+InventarioDinamico
+
+Proveedor cloud   [ AWS , GCP , DigitalOcean ] 
+Entornos propios  [ OpenStack. Ovirt, OpenShift, Zabbix ] 
+
+scrits en https://github..com/ansible/ansible -> contrib/inventory
+ 
