@@ -19,3 +19,7 @@ localhost ansible_connection=local
 192.168.18.76 ansible_user=jluis
 
 
+Separacion en directorios (ya en formato yaml):
+/etc/ansible/group-vars/grupo
+/etc/ansible/host-vars/servidor
+
