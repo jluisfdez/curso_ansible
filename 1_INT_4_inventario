@@ -1,0 +1,13 @@
+INVENTARIO 
+
+
+Formato INI
+
+root@debchrom:~# cat  /etc/ansible/hosts
+[ubuntu]
+localhost ansible_connection=local
+192.168.18.102 ansible_user=joseluis
+[debian]
+192.168.18.76 ansible_user=jluis
+
+
