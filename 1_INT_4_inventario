@@ -26,6 +26,23 @@ debian
 ansible_become: True
 
 Separacion en directorios (ya en formato yaml):
-/etc/ansible/group-vars/grupo
-/etc/ansible/host-vars/servidor
+/etc/ansible/group-vars/apt
+
+/etc/ansible/host-vars/192.168.18.102º
+
+Patrones 
+web[1-5].dominio o docker-[1-d].dominio
+
+Escoger inventario
+opcion -i para coger otro inventario...
+
+Parametros
+
+ansible-conncection 
+  ssh [ ansible_host, ansible_port ansible_user ansible_ssh_private_key_file] 
+  local 
+ansible_become
+  ansible_become_method [ su , sudo ]
+  ansible_become_user [ root, otro_user ]
+
 
