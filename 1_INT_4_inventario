@@ -14,10 +14,16 @@ defecto
 root@debchrom:~# cat  /etc/ansible/hosts
 [ubuntu]
 localhost ansible_connection=local
-192.168.18.102 ansible_user=joseluis
+192.168.18.102 ansible_user=joseluis ansible_become: False
 [debian]
 192.168.18.76 ansible_user=jluis
 
+[apt:children]
+ubuntu
+debian
+
+[apt:vars]
+ansible_become: True
 
 Separacion en directorios (ya en formato yaml):
 /etc/ansible/group-vars/grupo
