@@ -2,6 +2,14 @@ INVENTARIO
 
 
 Formato INI
+subgrupos :children
+variables :vars
+Preferencia de variables:
+host
+grupo
+grupo padre
+defecto
+
 
 root@debchrom:~# cat  /etc/ansible/hosts
 [ubuntu]
