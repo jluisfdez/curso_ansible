@@ -13,3 +13,6 @@ ANSIBLE_CONfIG
 ficheros ansible.cfg y .ansible.cfg
 fichero /etc/ansible/ansible.cfg
 
+
+ ansible-config list
+
