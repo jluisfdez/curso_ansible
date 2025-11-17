@@ -3,4 +3,6 @@ adhoc
 ansible [opciones ] servidores:grupos:all [-m modulo] [-a argumentos]
 opciones
   --limit filtro
-  
+  -- user 
+  -- become
+  -f simultaneos (por defecto 5=
