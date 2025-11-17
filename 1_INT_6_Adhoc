@@ -20,3 +20,6 @@ copy src=/etc/fichero  dst=/etc/fichero
 yum/apt name=vim state=present, etc...
 # ansible --limit rpi4,localhost all --become -m apt -a "name=vim state=present"
 # ansible --limit rpi4,localhost all --become -m apt -a "name=vim state=absent"
+
+--list_hosts
+-C (muestra las acciones no las hace)  / -V (verbose info)
