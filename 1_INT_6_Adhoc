@@ -1,0 +1,6 @@
+adhoc
+
+ansible [opciones ] servidores:grupos:all [-m modulo] [-a argumentos]
+opciones
+  --limit filtro
+  
