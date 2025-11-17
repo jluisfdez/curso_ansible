@@ -1,0 +1,15 @@
+Configuracion
+
+Permite cambiar la configuracion global
+- valores por defecto generales
+- configuracion de escalar permisos
+- opciones de openssh
+- opciones SELinux
+- Configuracion ANsible Galaxy ¿especie de store?
+
+
+Orden de busqueda
+ANSIBLE_CONfIG
+ficheros ansible.cfg y .ansible.cfg
+fichero /etc/ansible/ansible.cfg
+
