@@ -6,3 +6,5 @@ opciones
   -- user 
   -- become
   -f simultaneos (por defecto 5=
+
+EJ: ansible --limit rpi4,port_chrome all --become -a "cat /etc/debian"
