@@ -6,5 +6,17 @@ opciones
   -- user 
   -- become
   -f simultaneos (por defecto 5=
-
+  
 EJ: ansible --limit rpi4,port_chrome all --become -a "cat /etc/debian"
+
+Módulos
+
+setup (configuracion) 
+# ansible --limit rpi4,localhost all --become -m setup |grep releas
+
+copy src=/etc/fichero  dst=/etc/fichero
+# ansible --limit rpi4,localhost all --become -m copy -a "src=/etc/hosts dest=/etc/hosts_X"
+
+yum/apt name=vim state=present, etc...
+# ansible --limit rpi4,localhost all --become -m apt -a "name=vim state=present"
+# ansible --limit rpi4,localhost all --become -m apt -a "name=vim state=absent"
