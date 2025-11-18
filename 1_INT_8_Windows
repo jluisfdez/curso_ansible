@@ -7,3 +7,6 @@ requisitos
 tener el powershell 3.0
 habilitar control  remoto
 permitir el puerto 5986
+
+Ejemplo:
+ansible -i ./gce.py windows01 -c winrm -k -u alberto -e ansible_winrm_server_cert_validation=ignore -m win_ping 
