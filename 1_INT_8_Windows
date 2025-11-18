@@ -1,0 +1,9 @@
+Administracion de windows
+
+# apt-get install pip
+# pip install --break-system-packages pywinrm
+
+requisitos
+tener el powershell 3.0
+habilitar control  remoto
+permitir el puerto 5986
