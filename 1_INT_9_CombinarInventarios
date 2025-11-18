@@ -1,0 +1,13 @@
+CombinarInventarios
+
+EN unas carpeta podemos añadir los inventarios
+  hosts
+  dinamicos tipo gce.py (generados desde una cloud con script)
+
+Con la opcion -i especificamos el direcotrio
+
+root@debchrom:/etc/ansible/inventario# ansible --limit rpi4,indraMovil all -i /etc/ansible/inventario --become -m ping --list-hosts
+  hosts (2):
+    indraMovil
+    rpi4
+root@debchrom:/etc/ansible/inventario#
