@@ -24,3 +24,35 @@ YAML
 Para ejecutarlo:
 
 ansible_playbook [-i inventario] [opciones] fich.yaml
+
+
+Ej:
+
+root@debchrom:~/playbooks# cat copiar_hosts.yml
+---
+- name: Mi primer playbook
+  hosts: all
+  remote_user: joseluis
+  tasks:
+    - name: Copiar fichero hosts
+      copy: src=/etc/hosts dest=/etc/hosts_Old
+
+...
+root@debchrom:~/playbooks# ansible all -i /etc/ansible/inventario --list-hosts
+  hosts (4):
+    indraMovil
+    localhost
+    port_chrome
+    rpi4
+root@debchrom:~/playbooks# ansible-playbook --limit port_chrome -i /etc/ansible/inventario copiar_hosts.yml
+
+PLAY [Mi primer playbook] ***************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************************************************************************************
+ok: [port_chrome]
+
+TASK [Copiar fichero hosts] *************************************************************************************************************************************************************************************
+changed: [port_chrome]
+
+PLAY RECAP ******************************************************************************************************************************************************************************************************
+port_chrome                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
