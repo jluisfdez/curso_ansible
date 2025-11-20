@@ -1,0 +1,53 @@
+ESENCIALES
+
+hosts:
+   hosts: servweb:&madrid    $ En ambos
+   hosts: servweb:!madrid    ! Negacion (no en)
+   hosts: servweb:madrid
+
+
+Ejemplo:
+
+root@debchrom:~/playbooks# cat /etc/ansible/inventario/ciudades
+[Sevilla]
+lpwse001
+lpwse002
+lpwse003
+lpwse004
+lpwse005
+lpdse001
+lpdse020
+[LosMolares]
+lpwlm001
+lpwlm002
+lddlm001
+[web]
+lpwse001
+lpwse002
+lpwse003
+lpwse004
+lpwse005
+lpwlm001
+lpwlm002
+
+root@debchrom:~/playbooks# ansible-playbook --limit 'web' -i /etc/ansible/inventario copiar_hosts.yml --list-hosts
+playbook: copiar_hosts.yml
+  play #1 (all): Mi primer playbook     TAGS: []
+    pattern: ['all']
+    hosts (7):
+      lpwse003
+      lpwse005
+      lpwse002
+      lpwse001
+      lpwlm001
+      lpwse004
+      lpwlm002
+
+root@debchrom:~/playbooks# ansible-playbook --limit 'Sevilla:!web' -i /etc/ansible/inventario copiar_hosts.yml --list-hosts
+playbook: copiar_hosts.yml
+  play #1 (all): Mi primer playbook     TAGS: []
+    pattern: ['all']
+    hosts (2):
+      lpdse001
+      lpdse020
+
