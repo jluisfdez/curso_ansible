@@ -1,9 +1,18 @@
 ESENCIALES
 
+
+remote_user:
+become:  True/False
+become_user:
+become_method:  sudo/su/pbrun/ksu
+check_mode: True/False   (simulación)
+
+
 hosts:
    hosts: servweb:&madrid    $ En ambos
    hosts: servweb:!madrid    ! Negacion (no en)
    hosts: servweb:madrid
+
 
 
 Ejemplo:
