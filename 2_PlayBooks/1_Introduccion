@@ -7,5 +7,12 @@ Variables
 
 YAML
 
-
+---
+- name: Mi primer playbook
+  hosts: all
+  remote_user: jluis
+  tasks:
+    - name: Copiar fichero hosts
+    - copy: src=/etc/hosts dest=/etc/hosts 
+...
 
