@@ -33,6 +33,7 @@ root@debchrom:~/playbooks# cat copiar_hosts.yml
 - name: Mi primer playbook
   hosts: all
   remote_user: joseluis
+  #become: True
   tasks:
     - name: Copiar fichero hosts
       copy: src=/etc/hosts dest=/etc/hosts_Old
