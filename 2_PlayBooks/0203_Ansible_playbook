@@ -14,4 +14,9 @@ Opciones
 --step (pide confirmacion de cada tarea)
    Ej: # ansible-playbook -i /etc/ansible/inventario --step copiar_hosts.yml
 
+--start-at-task="Copiar hosts2"
+
+--forks  (-f)  limitar tareas en paralelo, por defecto 5
+
+-v (vvvv) verbose
 
