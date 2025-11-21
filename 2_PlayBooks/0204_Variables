@@ -1,0 +1,36 @@
+VARIABLES
+
+EJ:
+
+Definir el puerto de una aplicacion: 
+Indicar un usuario
+Establecer la ruta de un fichero
+
+Se obtienen :
+  desde el servidor
+  desde un playbook
+  desde la linea de comando -e clave=valor
+
+Se pueden usar en tareas, plantillas, etc (condiciones, roles, bucles, etc)
+
+Se usa "{{ var }} "
+
+EJ:
+
+# cat hosts.j2
+{{ miip }} {{ ansible_hostname }} {{ ansible_fqdn }}
+# cat variables.yml
+- name: Crear fichero usando variables
+  hosts: localhost
+  connection: local
+  vars:
+    - miip: "1.2.3.4"
+  tasks:
+    - name: Crear fich hosts
+      template: src=hosts.j2 dest=/tmp/hosts_ansible
+# ansible-playbook  variables.yml
+# cat /tmp/hosts_ansible
+1.2.3.4 debchrom debchrom.fuente36
+
+Para ver las variables disponibles podemos usar
+# ansible localhost -m setup 
