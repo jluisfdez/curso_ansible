@@ -34,3 +34,9 @@ EJ:
 
 Para ver las variables disponibles podemos usar
 # ansible localhost -m setup 
+
+# Especificando en linea de comando
+# ansible-playbook -e miip="5.4.6.7"  variables.yml
+...
+# cat /tmp/hosts_ansible
+5.4.6.7 debchrom debchrom.fuente36
