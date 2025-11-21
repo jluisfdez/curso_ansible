@@ -1,0 +1,17 @@
+ANSIBLE PLAYBOOK
+
+ansible-playboy
+
+Opciones
+
+-i inventario  (fichero, directorio, script...)
+
+--syntax-checks (comprueba sintaxis)
+   EJ: # ansible-playbook -i /etc/ansible/inventario  --syntax-check copiar_hosts.yml
+
+--list-task
+
+--step (pide confirmacion de cada tarea)
+   Ej: # ansible-playbook -i /etc/ansible/inventario --step copiar_hosts.yml
+
+
