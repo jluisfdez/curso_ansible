@@ -1,2 +1,16 @@
 Include y Roles
 
+Es posible dividir un playbook en distinta partes para facilitar la edición y tratado.
+
+Con includes podemos especificar otro ficheros que contienes playbooks o otra tareas
+
+Ej:
+- name: Primer Play
+  hosts: servweb
+  tasks:
+  - name: tarea en este fichero
+    copy: src=fichs dest=fichs
+  - include: otras_tareas.yml
+
+
+
