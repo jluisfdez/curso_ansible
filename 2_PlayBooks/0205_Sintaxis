@@ -1,1 +1,37 @@
-_SintaxisYaml
+Sintaxis Yaml
+
+EJ, dada una tarea:
+
+- name: Copiar fichero
+#  modulo: argumentos con =
+  copy: src=/etc/hosts dest=/etc/hosts owner=root group=root mode=0644
+
+ó 
+
+- name: Copiar fichero
+#  modulo: argumentos con =
+  copy: 
+    src: /etc/hosts 
+    dest: /etc/hosts 
+    owner: root 
+    group: root 
+    mode: 0644
+
+Tambien se pueden poner una lista de variables para hacer tareas repetitivas:
+
+Ej: Lista de variables
+instalar: [ "apache2" , "mysql" , "php5" ]
+ó
+instalar:
+  - apache2
+  - mysql
+  - php5
+
+
+Diccionarios  ( instalar.web ) 
+Ej: instalar: { web: 'apache2' , bd: 'mariadb' , script: 'php5' }
+ó
+instalar:
+  web: apache2
+  bd: mariadb
+  script: php5
