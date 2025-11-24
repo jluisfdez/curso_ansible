@@ -2,4 +2,14 @@ Handlers
 
 Es una tarea que sólo se ejecutará en caso de que otra tarea la llame.
 
-Su uso mas comun es reiniciar un servicio cuando se cambie la configuración.
+Su uso mas comun es reiniciar un servicio cuando se cambie la configuración.  Siempre se ejecutan al final de playbook
+
+Ej:
+tasks:
+  - name Configurar sshd_config
+    copy: src=sshd_config.new dest=/etc/sshd_config_new
+    notify: reiniciar_sshd
+
+handlers:
+  - name: reiniciar_ssh
+    servoce: name=sshd state= restarted
