@@ -13,3 +13,18 @@ tasks:
 handlers:
   - name: reiniciar_ssh
     servoce: name=sshd state= restarted
+
+Ej:
+# cat sshd.yml
+---
+- name: Actiualizar config sshd_config
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Copiar fichero
+      copy: src=sshd_config_OLD dest=sshd_config
+      notify: reinicia_sshd
+  handlers:
+    - name: reinicia_sshd
+      service: name=sshd state=restarted
+...
