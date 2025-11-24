@@ -1,0 +1,5 @@
+Handlers
+
+Es una tarea que sólo se ejecutará en caso de que otra tarea la llame.
+
+Su uso mas comun es reiniciar un servicio cuando se cambie la configuración.
