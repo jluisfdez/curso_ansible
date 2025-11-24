@@ -5,12 +5,29 @@ Es posible dividir un playbook en distinta partes para facilitar la edición y t
 Con includes podemos especificar otro ficheros que contienes playbooks o otra tareas
 
 Ej:
-- name: Primer Play
-  hosts: servweb
+# cat include.yml
+- name: Primer play
+  hosts: localhost
+  connection: local
   tasks:
-  - name: tarea en este fichero
-    copy: src=fichs dest=fichs
-  - include: otras_tareas.yml
+    - name: Instalar vim
+      apt: name=vim state=latest
+    - include: instalar_apache2.yml
 
+- name: Segundo play
+  ansible.builtin.import_playbook: segundo_play.yml
 
+# cat instalar_apache2.yml
+- name: Instalar apache2
+  apt: name=apache2 state=latest
+- name: Iniciar apache
+  service: name=apache2 state=started
+- name: Habilitar servicio
+  service: name=apache2 enabled=true
 
+# cat segundo_play.yml
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Instalar lftp
+      apt: name=lftp state=latest
