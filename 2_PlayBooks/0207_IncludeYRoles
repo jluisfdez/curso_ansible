@@ -54,3 +54,41 @@ roles:
 Para pasar variables 
   roles:
   - { role: rol1, clave: valor }
+
+root@debchrom:~/playbooks/web/roles# find .
+.
+./apache2
+./apache2/tasks
+./apache2/tasks/main.yml
+./apache2/handlers
+./apache2/handlers/main.yml
+./apache2/files
+./apache2/files/apache2.conf
+./apache2/templates
+./apache2/templates/index.html.j2
+
+root@debchrom:~/playbooks/web# cat instalar.yml
+- name: Instalar y configurar apache2
+  hosts: localhost
+  connection: local
+  roles:
+    - apache2
+
+root@debchrom:~/playbooks/web/roles# cat apache2/templates/index.html.j2
+Hola al servidor {{ ansible_fqdn}}
+
+root@debchrom:~/playbooks/web/roles# cat apache2/tasks/main.yml
+- name: Instalar apache2
+  apt: name=apache2 state=latest
+- name: Iniciar y habilitar apache2
+  service: name=apache2 state=started enabled=true
+- name: Copiar fichero de configuración
+  copy: src=apache2.conf dest=/etc/apache2/apache2.conf
+  notify: restart_httpd
+- name: Copiar fichero index.html
+  template: src=index.html.j2 dest=/var/www/html/index.html
+
+root@debchrom:~/playbooks/web/roles# cat apache2/handlers/main.yml
+- name: restart_httpd
+  service: name=apache2 enabled=true
+
