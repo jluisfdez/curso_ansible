@@ -31,3 +31,26 @@ Ej:
   tasks:
     - name: Instalar lftp
       apt: name=lftp state=latest
+
+
+Roles
+Estructura de fichros y directorios para separar los elemente, permite ser revisados facilmente  es posible descargar roles predefinidos desde ansible galaxy
+
+Estructura:
+roles/
+  nombre/
+    files/
+    templates/
+    tasks/main.yml
+    handlers/main.yml
+    vars/main.y
+    defaults/main.ymrl
+    neta/main.yml
+
+roles:
+  - rol1
+  - rol2
+
+Para pasar variables 
+  roles:
+  - { role: rol1, clave: valor }
