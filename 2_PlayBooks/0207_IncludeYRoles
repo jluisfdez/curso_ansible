@@ -92,3 +92,38 @@ root@debchrom:~/playbooks/web/roles# cat apache2/handlers/main.yml
 - name: restart_httpd
   service: name=apache2 enabled=true
 
+Ejecucion:
+
+root@debchrom:~/playbooks# ansible-playbook --syntax-check web/instalar.yml
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+playbook: web/instalar.yml
+root@debchrom:~/playbooks# ansible-playbook web/instalar.yml
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [Instalar y configurar apache2] **************************************************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [apache2 : Instalar apache2] *****************************************************************************************************************************************
+ok: [localhost]
+
+TASK [apache2 : Iniciar y habilitar apache2] ******************************************************************************************************************************
+ok: [localhost]
+
+TASK [apache2 : Copiar fichero de configuración] **************************************************************************************************************************
+changed: [localhost]
+
+TASK [apache2 : Copiar fichero index.html] ********************************************************************************************************************************
+changed: [localhost]
+
+RUNNING HANDLER [apache2 : restart_httpd] *********************************************************************************************************************************
+ok: [localhost]
+
+PLAY RECAP ****************************************************************************************************************************************************************
+localhost                  : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+root@debchrom:~/playbooks#
