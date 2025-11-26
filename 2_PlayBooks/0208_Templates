@@ -1,0 +1,10 @@
+Plantillas
+
+Se pueden especificar las siguientes intrucciones:
+
+- Expresiones {{  variable }}
+  {{ ansible_fqdn }}
+- control {% exp de control %}
+  {% if ansible_distribution == "Debian" %}
+       mostrar solo en istemas Debian
+  {% endif %}
