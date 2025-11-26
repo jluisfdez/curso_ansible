@@ -12,7 +12,7 @@ Se pueden especificar las siguientes intrucciones:
   {% for uusario in lista_usuarios %}
      {{  usuario }}
   {% endfor %}
-
+- COmentario: {# Comentario #}
 
 EJ:
 # cat web/roles/apache2/templates/index.html.j2
@@ -31,7 +31,7 @@ lista_usuarios: [ "pepe", "juan", "alberto", "maria", "tete", "jan", "josefa" ]
 
 # cat web/roles/apache2/templates/index.html.j2
 Hola al servidor {{ ansible_fqdn}}
-
+{# Comentario, clase de templates \n #}
 {% if ansible_distribution == "Debian" %}
     Mostrar solo en sistemas DEBIAN 
 {% endif %}
@@ -50,3 +50,6 @@ Si quisieramos sobreescribir esa lista de usuarios :
   connection: local
   roles:
     - { role: apache2, lista_usuarios: ["Maria", "Cristina"] }
+
+Ó tambien 
+# ansible-playbook -e '{ "lista_usuarios": [ "UserA", "UserC" ]} '  web/instalar.yml 
