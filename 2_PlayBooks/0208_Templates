@@ -8,3 +8,4 @@ Se pueden especificar las siguientes intrucciones:
   {% if ansible_distribution == "Debian" %}
        mostrar solo en istemas Debian
   {% endif %}
+ 
