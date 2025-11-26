@@ -8,4 +8,45 @@ Se pueden especificar las siguientes intrucciones:
   {% if ansible_distribution == "Debian" %}
        mostrar solo en istemas Debian
   {% endif %}
- 
+
+  {% for uusario in lista_usuarios %}
+     {{  usuario }}
+  {% endfor %}
+
+
+EJ:
+# cat web/roles/apache2/templates/index.html.j2
+Hola al servidor {{ ansible_fqdn}}
+
+{% if ansible_distribution == "Debian" %}
+    Mostrar solo en sistemas DEBIAN 
+{% endif %}
+
+#Ejecucion en :
+# ansible-playbook web/instalar.yml
+
+Ej: con lista de diccionario:
+/playbooks# cat web/roles/apache2/defaults/main.yml
+lista_usuarios: [ "pepe", "juan", "alberto", "maria", "tete", "jan", "josefa" ]
+
+# cat web/roles/apache2/templates/index.html.j2
+Hola al servidor {{ ansible_fqdn}}
+
+{% if ansible_distribution == "Debian" %}
+    Mostrar solo en sistemas DEBIAN 
+{% endif %}
+
+{% for usuario in lista_usuarios %}
+   {{  usuario }}
+{% endfor %}
+
+#Ejecucion en :
+# ansible-playbook web/instalar.yml
+
+Si quisieramos sobreescribir esa lista de usuarios :
+/playbooks# cat web/instalar.yml
+- name: Instalar y configurar apache2
+  hosts: localhost
+  connection: local
+  roles:
+    - { role: apache2, lista_usuarios: ["Maria", "Cristina"] }
