@@ -1,2 +1,35 @@
 Condiciones
 
+Es posible condicionar la ejecución de una tarea, la inclusión de un fichero o  el useo de un rol usando la expresión when.
+
+A nivel de tarea, ej:
+
+~/playbooks# cat web/roles/apache2/tasks/main.yml
+- name: Instalar apache2 apt
+  apt: name=apache2 state=latest
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+- name: Instalar apache2 yum
+  yum: name=httpd state=latest
+  when: ansible_distribution == "RHEL"
+
+- name: Iniciar y habilitar apache2
+  service: name=apache2 state=started enabled=true
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+- name: Iniciar y habilitar httpd
+  service: name=httpd  state=started enabled=true
+  when: ansible_distribution == "RHEL" or ansible_distribution == "CentOS"
+
+- name: Copiar fichero de configuración
+  copy: src=apache2.conf dest=/etc/apache2/apache2.conf
+  notify: restart_httpd
+- name: Copiar fichero index.html
+  template: src=index.html.j2 dest=/var/www/html/index.html
+
+
+A nivel de include:
+- name: Instalar apache2
+  include: instalar_apache2.yml
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+- name: Instalar httpd
+  include: instalar_httpd.yml  
+  when: ansible_distribution == "RHEL" or ansible_distribution == "CentOS"
