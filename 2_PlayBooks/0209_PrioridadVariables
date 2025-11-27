@@ -1,2 +1,11 @@
 Prioridad de variables
 
+El orden (de menor a mayor) prioridad
+
+Definidas en defaults en rol
+Variables de grupo ( inventario -> grupo.vars/all -> group.vars/grupos )
+Variables del servidor ( inventario -> hosts_vars/(servidor> )
+Facts del servidor
+Variables del play ( -> vars.prompt -> vars.files ) 
+Variables del role ( Definidas en /roles/rol/vars/main.yml )
+Variables del bloque -> Variables de tareas
