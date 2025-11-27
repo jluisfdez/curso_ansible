@@ -27,9 +27,59 @@ A nivel de tarea, ej:
 
 
 A nivel de include:
-- name: Instalar apache2
-  include: instalar_apache2.yml
+
+/playbooks/web/roles/apache2/tasks# cat main.yml
+- name: Instalar apache2 apt
+  include: Inst_apache2.yml
   when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
-- name: Instalar httpd
-  include: instalar_httpd.yml  
-  when: ansible_distribution == "RHEL" or ansible_distribution == "CentOS"
+- name: Instalar httpd yum
+  include: Inst_httpd.yml
+  when: ansible_distribution == "RHEL"
+
+- name: Copiar fichero index.html
+  template: src=index.html.j2 dest=/var/www/html/index.html
+
+/playbooks/web/roles/apache2/tasks# cat Inst_apache2.yml
+- name: Instalar apache2 apt
+  apt: name=apache2 state=latest
+- name: Iniciar y habilitar apache2
+  service: name=apache2 state=started enabled=true
+- name: Copiar fichero de configuración
+  copy: src=apache2.conf dest=/etc/apache2/apache2.conf
+  notify: restart_httpd
+
+/playbooks/web/roles/apache2/tasks# cat Inst_httpd.yml
+- name: Instalar apache2 yum
+  yum: name=httpd state=latest
+- name: Iniciar y habilitar httpd
+  service: name=httpd state=started enabled=true
+
+
+A nivel de rol:
+
+roles:
+ - { role: apache2 , when: ansible_distribution == "Debian" }
+
+Ej:
+/playbooks/web# cat instalarXrol.yml
+- name: Instalar y configurar apache2
+  hosts: localhost
+  connection: local
+  roles:
+    - { role: apache2, lista_usuarios: ["Maria", "Cristina"] when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"}
+    - { role: httpd, lista_usuarios: ["Maria", "Cristina"] when: ansible_distribution == "CentOS" or ansible_distribution == "RHEL"}
+
+/playbooks/web# cat roles/apache2/tasks/main.yml
+- name: Instalar apache2 apt
+  apt: name=apache2 state=latest
+- name: Iniciar y habilitar apache2
+  service: name=apache2 state=started enabled=true
+- name: Copiar fichero de configuración
+  copy: src=apache2.conf dest=/etc/apache2/apache2.conf
+  notify: restart_httpd
+
+/playbooks/web# cat roles/httpd/tasks/main.yml
+- name: Instalar apache2 yum
+  yum: name=httpd state=latest
+- name: Iniciar y habilitar httpd
+  service: name=httpd state=started enabled=true
