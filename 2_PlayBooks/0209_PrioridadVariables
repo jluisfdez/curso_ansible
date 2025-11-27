@@ -10,3 +10,5 @@ Variables del play ( -> vars.prompt -> vars.files )
 Variables del role ( Definidas en /roles/rol/vars/main.yml )
 Variables del bloque -> Variables de tareas
 Parametors de role -> include_params -> include_vars 
+Set_facts / registered_vars
+Extra vars (en linea de comando)
