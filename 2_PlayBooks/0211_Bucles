@@ -47,5 +47,11 @@ dict_usuarios:
   - { nombre: falete1, grupo: www-data }
   - { nombre: falete2, grupo: www-data }
 
-
+Y machacando los de x defecto:
+/playbooks# cat  web/bucles.yml
+- name: Instalar y configurar apache2 y crear usuarios
+  hosts: localhost
+  connection: local
+  roles:
+    - { role: bucles, lista_usuarios: [ "iba", "por", "Canalejas" ] }
 
