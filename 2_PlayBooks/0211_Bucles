@@ -1,1 +1,12 @@
 Bucles
+
+
+Para listas y diccionarios, usaremos la expresion with_items
+
+EJ.
+- name: Instalar software necesario
+  apt: name = {{ items }} state=latest
+  with_items:
+    - mariadb
+    - php5
+    - phpmyadmin
