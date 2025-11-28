@@ -17,3 +17,34 @@ EJ.
     - {{ nombre: usuario1 , grupo : ww-data}} 
     - {{ nombre: usuario2 , grupo : ww-data}} 
 
+Ej:
+:~/playbooks# cat  web/roles/bucles/tasks/main.yml
+- name: crear usuarios1
+  user: name={{ item }} state=present groups=www-data
+  with_items:
+    - jose1
+    - jose2
+
+- name: crear usuarios2
+  user: name={{ item.nombre }} state=present groups={{ item.grupo }}
+  with_items:
+    - { nombre: usuario1, grupo: www-data }
+    - { nombre: usuario2, grupo: www-data }
+
+Tambien se puede usando variables:
+/playbooks# cat   web/roles/bucles/tasks/main.yml
+- name: crear usuarios3
+  user: name={{ item }} state=present groups=www-data
+  with_items: "{{ lista_usuarios}}"
+- name: crear usuarios4
+  user: name={{ item.nombre }} state=present groups=www-data
+  with_items: "{{ dict_usuarios}}"
+
+/playbooks# cat   web/roles/bucles/defaults/main.yml
+lista_usuarios: [ "paquete1", "paquete2" ]
+dict_usuarios:
+  - { nombre: falete1, grupo: www-data }
+  - { nombre: falete2, grupo: www-data }
+
+
+
