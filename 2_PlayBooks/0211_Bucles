@@ -10,3 +10,10 @@ EJ.
     - mariadb
     - php5
     - phpmyadmin
+
+- name: crear usuarios
+  user: name = {{ item.nombre }} state=present groups={{ item.group}}
+  with_items:
+    - {{ nombre: usuario1 , grupo : ww-data}} 
+    - {{ nombre: usuario2 , grupo : ww-data}} 
+
