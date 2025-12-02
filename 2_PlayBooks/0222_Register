@@ -1,3 +1,12 @@
 REGISTER
 
 La expresión register nos permite guardar en una variable el resultado de la accion realizada por un modulo en una tarea.
+
+Ej: Ejecutar comando
+- name: EJecutar comando
+  command: uptime
+  register: salida
+- name: Mostar salida
+  debug: var=salida
+
+
