@@ -9,4 +9,21 @@ Ej: Ejecutar comando
 - name: Mostar salida
   debug: var=salida
 
+Los valores devueltos:
+  changed
+failed
+skipped
+rc
+stdout / stderr / stdout_lines / stderr_lines 
 
+Ej:
+/playbooks# cat  register.yml
+- name: Playbook para la clase de register
+  hosts: localhost
+  tasks:
+    - name: Ejecutar comando uptime
+      command: uptime
+      register: salida_uptime
+      when: 1==0
+    - name: Visualizar variable
+      debug: var=salida_uptime.stdout
