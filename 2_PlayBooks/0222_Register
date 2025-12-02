@@ -32,13 +32,13 @@ tambien es posible utilidar
 - when  salida.changed
 
 Ej:
-/playbooks# cat  register.yml
-- name: Playbook para la clase de register
-  hosts: localhost
-  tasks:
-    - name: Ejecutar comando uptime
-      command: uptime
-      register: salida_uptime
-      when: 1==0
-    - name: Visualizar variable
-      debug: var=salida_uptime.stdout
+/playbooks# cat web/roles/register/tasks/main.yml
+- name: Copiar fichero indesx.jtml
+  template: src=index.html.j2 dest=/var/www/html/index.html
+  register: copiado
+- name: mostrar conetenido solo si cambia
+  command: cat /var/www/html/index.html
+  register: salida
+  when: copiado.changed
+- debug: var=salida.stdout
+  when: copiado.changed
