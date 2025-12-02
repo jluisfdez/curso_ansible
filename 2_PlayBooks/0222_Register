@@ -28,4 +28,5 @@ Ej:
     - name: Visualizar variable
       debug: var=salida_uptime.stdout
 
-
+tambien es posible utilidar
+- when  salida|changed
