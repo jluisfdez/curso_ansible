@@ -27,3 +27,5 @@ Ej:
       when: 1==0
     - name: Visualizar variable
       debug: var=salida_uptime.stdout
+
+
