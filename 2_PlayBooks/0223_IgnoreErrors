@@ -11,3 +11,21 @@ Ej:
 La exresión ignore_errors puede ser especificada a nivel de play, pero no se recomienda
 
 Tambien es posible usar la condición ; not existed.failed para realizar una tarea dependiente
+
+Ej:  /playbooks# cat ignore_errors.yml
+- name: Playbook para usar ignore_errors
+  hosts: localhost
+  tasks:
+    - name: Ejecutar comando
+      command:  cat /etc/hosts2
+      register: salida
+      ignore_errors: true
+    - name: Visualizar variable
+      debug: var=salida.stdout_lines
+    - name: Visualizar variable si ha fallado el cat
+      debug: var=salida.stderr_lines
+      when: salida.failed
+    - name: Visualizar variable si no ha fallado el cat
+      debug: var=salida.rc
+      when: not salida.failed
+        # tambien se puede usar != failed
