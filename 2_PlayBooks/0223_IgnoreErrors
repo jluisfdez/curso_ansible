@@ -8,3 +8,6 @@ Ej:
   register: existe
   ignore_errors: true
 
+La exresión ignore_errors puede ser especificada a nivel de play, pero no se recomienda
+
+Tambien es posible usar la condición ; not existed.failed para realizar una tarea dependiente
