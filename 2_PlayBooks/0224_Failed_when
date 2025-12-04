@@ -1,0 +1,6 @@
+Failed_when y Changed_when
+
+Las expresiones failed_when y changed_when permite especificar las condiciones para marcar una tarea como fallida o cambiada.
+
+En el caso de un comando sera marcado como error si el return code (rc) es distinto a 0.
+
