@@ -1,0 +1,10 @@
+Ignore_Errors
+
+La expresión ignore_errors permite ignorar una tarea marcada como error y permitiria continuar con el resto de tareas
+
+Ej:
+- name: comprobar si fich existe
+  command: ls noexiste.conf
+  register: existe
+  ignore_errors: true
+
