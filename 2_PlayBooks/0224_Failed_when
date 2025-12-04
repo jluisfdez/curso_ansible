@@ -4,3 +4,11 @@ Las expresiones failed_when y changed_when permite especificar las condiciones p
 
 En el caso de un comando sera marcado como error si el return code (rc) es distinto a 0.
 
+
+En el caso de changed_when seria :
+
+Para no marcar nunca como cambiado
+- name : No maarcar nunca como cambiado
+  command: uptime
+  changed_when: False
+
