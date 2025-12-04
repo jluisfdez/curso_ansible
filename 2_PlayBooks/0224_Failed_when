@@ -4,11 +4,28 @@ Las expresiones failed_when y changed_when permite especificar las condiciones p
 
 En el caso de un comando sera marcado como error si el return code (rc) es distinto a 0.
 
+Ej:
+/playbooks# cat failed_.yml
+- name: Playbook para usar failed_when y changed_when
+  hosts: localhost
+  tasks:
+    - name: Obtener interfaces de red
+      command: ip a
+      register: salida
+      failed_when: "'wlp1s0' not in salida.stdout"
+    - name: Visualizar variable
+      debug: var=salida.stdout
 
-En el caso de changed_when seria :
-
-Para no marcar nunca como cambiado
-- name : No maarcar nunca como cambiado
-  command: uptime
-  changed_when: False
-
+En el caso de changed_when seria para no marcar las tareas como cambiadas:
+Ej:
+/playbooks# cat failed_.yml
+- name: Playbook para usar failed_when y changed_when
+  hosts: localhost
+  tasks:
+    - name: Obtener interfaces de red
+      command: ip a
+      register: salida
+      failed_when: "'wlp1s80' not in salida.stdout"
+      changed_when: False
+    - name: Visualizar variable
+      debug: var=salida.stdout
