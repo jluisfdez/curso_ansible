@@ -1,1 +1,60 @@
 Módulos
+
+Son los componentas más importantes de ansible, ya que son los que realizan las acciones en los servidores.
+Ansible está comupuesto de una multitud de módulos.  Éstos pudeden administrar sistemas, dispositivos, usuarios y mucho más.
+
+Cada tarea en un playbook está sociada a un módulo; cada uno con distintos argumentos.  Estos pueden ser opcionales u obligatorios, adeaás cada parametro puede tener un valor por defecto.
+Se separan en las siguientes categorias.
+
+- cloud
+
+- clustering
+
+- commands
+
+- crypto
+
+- database
+
+- files
+
+- identity
+
+- inventory
+
+- messaging
+
+- monitoring
+
+- network
+
+- notification
+
+- packaging
+
+- remote management
+
+- source control
+
+- storage
+
+- system
+
+- utilities
+
+- web infraestructures
+
+- windows
+
+
+Se puede usar ansible-doc para listar (-l) y obtener info y ejemplos.
+
+Ej:
+ansible-doc -l
+ansible-doc templates
+
+
+
+
+
+
