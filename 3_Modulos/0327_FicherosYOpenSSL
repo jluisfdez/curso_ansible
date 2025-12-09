@@ -2,3 +2,19 @@ Módulos de fichero y  OpenSSL
 
 Permite trabajar con ficheros, plantillas y directorios
 
+- acl: Establece y obtiene información de listas de control de acceso (ACLs).
+- archive: crea un fichero comprimido a partir de una lista de ficheros o estructura de directorios.
+- assemble: Ensambla un fichero de configuracion desde distintos fragmentos.
+...
+- find : devuelve una lista de ficheros a partir de un patrón dado
+- inifile: gestiona valores de un fichero ini.
+
+- blockinfile: Inserta/actualiza/elimina un bloque de texto de un fichero.
+
+- copy: copia ficheros a ubicaciones remotas.
+
+- fetch: obtiene ficheros d eun nodo remoto.
+
+- file : estable atrivutos a ficheros
+
+- iso.extract: Extrae ficheros de una imagen ISO.
