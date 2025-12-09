@@ -1,6 +1,6 @@
 Módulos de fichero y  OpenSSL
 
-Permite trabajar con ficheros, plantillas y directorios
+Fichero: Permite trabajar con ficheros, plantillas y directorios
 
 - acl: Establece y obtiene información de listas de control de acceso (ACLs).
 - archive: crea un fichero comprimido a partir de una lista de ficheros o estructura de directorios.
@@ -14,6 +14,7 @@ Permite trabajar con ficheros, plantillas y directorios
 - tempfile: Para crear ficheros o directorio temporales
 - xattr:  Establece/obtiene atributos extendido 
 
+X explicar mas en detalle:
 
 - blockinfile: Inserta/actualiza/elimina un bloque de texto de un fichero.
 
@@ -30,3 +31,15 @@ Permite trabajar con ficheros, plantillas y directorios
 - template: copia y procesa una plantilla a un nodo remoto.
 
 - unarchive: extrae un fichero (opcionalmente despues de copiarlo)
+
+
+OpenSSL: Los módulos para openSSL son los siguientes:
+
+- openssl_privatekey:  Para tratar claves privadas usando openSSL
+
+- openssl_publickey:  Para tratar claves publica usando openSSL
+
+
+
+
+
