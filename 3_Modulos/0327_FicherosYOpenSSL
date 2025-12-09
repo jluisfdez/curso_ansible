@@ -12,7 +12,7 @@ Permite trabajar con ficheros, plantillas y directorios
 - replace: Reemplaza las coincidencias d eun texto especificado por otro indicado.
 - synchronize: Módulo para sincronizar usanto rsync
 - tempfile: Para crear ficheros o directorio temporales
-
+- xattr:  Establece/obtiene atributos extendido 
 
 
 - blockinfile: Inserta/actualiza/elimina un bloque de texto de un fichero.
