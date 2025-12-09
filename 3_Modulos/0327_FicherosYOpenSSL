@@ -8,6 +8,7 @@ Permite trabajar con ficheros, plantillas y directorios
 ...
 - find : devuelve una lista de ficheros a partir de un patrón dado
 - inifile: gestiona valores de un fichero ini.
+- iso.extract: Extrae ficheros de una imagen ISO.
 
 - blockinfile: Inserta/actualiza/elimina un bloque de texto de un fichero.
 
@@ -17,4 +18,4 @@ Permite trabajar con ficheros, plantillas y directorios
 
 - file : estable atrivutos a ficheros
 
-- iso.extract: Extrae ficheros de una imagen ISO.
+- lineinfile: Asegura que una linea está en un fichero, o reemplaza una linea usando expresiones regurlares.
