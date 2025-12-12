@@ -50,6 +50,17 @@ EJ:
 - fetch: obtiene ficheros d eun nodo remoto.
 
 - file : establece atributos a ficheros
+Obligatorios:
+  path=/directorio/fichero
+Opcionales:
+  backup=yes/no (previamente crea una copia de seguridad)
+  force=yes/no  (yes=copia aunque exista, no=solo copia si no existe)
+  owner=usuario 
+  group=grupo
+  mode=modo  (644 o u=rw, etc)
+  state= file* , link, hard, directory, touch, absent
+
+
 
 - lineinfile: Asegura que una linea está en un fichero, o reemplaza una linea usando expresiones regurlares.
 
