@@ -21,14 +21,23 @@ X explicar mas en detalle:
 - copy: copia ficheros a ubicaciones remotas.
 Obligatorios:
   dest=/directorio/fichero
-Opcionales
-  backup=yes/no
+Opcionales:
+  backup=yes/no (previamente crea una copia de seguridad)
   content="contenido"
-  force=yes/no
-  owner=usuario
+  force=yes/no  (yes=copia aunque exista, no=solo copia si no existe)
+  owner=usuario 
   group=grupo
-  mode = modo
+  mode=modo  (644 o u=rw, etc)
   source=/directorio/fichero
+
+EJ:
+# cat copy.yml
+- name: Playbook para usar el modulo copy
+  hosts: localhost
+  tasks:
+    - name: Copiar
+      copy: src=prueba.conf dest=/tmp/prueba.conf
+            owner=joseluis group=joseluis
 
 
 - fetch: obtiene ficheros d eun nodo remoto.
