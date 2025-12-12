@@ -19,6 +19,17 @@ X explicar mas en detalle:
 - blockinfile: Inserta/actualiza/elimina un bloque de texto de un fichero.
 
 - copy: copia ficheros a ubicaciones remotas.
+Obligatorios:
+  dest=/directorio/fichero
+Opcionales
+  backup=yes/no
+  content="contenido"
+  force=yes/no
+  owner=usuario
+  group=grupo
+  mode = modo
+  source=/directorio/fichero
+
 
 - fetch: obtiene ficheros d eun nodo remoto.
 
