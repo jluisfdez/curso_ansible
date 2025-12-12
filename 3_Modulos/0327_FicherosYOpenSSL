@@ -58,9 +58,27 @@ Opcionales:
   owner=usuario 
   group=grupo
   mode=modo  (644 o u=rw, etc)
-  state= file* , link, hard, directory, touch, absent
+  state= file* , link, hard, directory (lo crea), touch (lo crea), absent (lo borra si existe)
 
-
+Ej: 
+# cat  file_cambiarPermiso.yml
+- name: Playbook para usar el modulo file para cambiar permisos
+  hosts: localhost
+  tasks:
+    - name: Cambiar permisos
+      #      file: dest=/tmp/prueba.conf mode="u=rwx,g=rx,o=r"
+      file: dest=/tmp/prueba.conf mode="644"
+            owner=joseluis group=joseluis
+# cat file_ExisteOno.yml
+- name: Playbook para usar el modulo file para ver si existe o no fichero/directorio
+  hosts: localhost
+  tasks:
+    - name: Carpeta
+      file: path=/tmp/prueba.d state=directory
+            owner=joseluis group=joseluis
+    - name: Existe fich
+      file: path=/tmp/prueba2.conf state=absent mode="644"
+            owner=joseluis group=joseluis
 
 - lineinfile: Asegura que una linea está en un fichero, o reemplaza una linea usando expresiones regurlares.
 
