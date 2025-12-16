@@ -1,1 +1,45 @@
+Ficheros y OpenSSL II
 
+Ej de file completo:
+# cat  journal.yml
+- name: Playbook para usar el modulo file para ver si existe o no fichero/directorio
+  hosts: localhost
+  tasks:
+    - name: Crea fich con contenido especificado
+      copy: content="Esto es un fihc" dest="/tmp/prueba" backup=yes
+    - name: Propiedades fich
+      file: path=/tmp/prueba state=absent
+            owner=joseluis group=joseluis
+    - name: Existe dir
+      file:
+        path: "/var/log/journal"
+        state: absent
+        owner: root
+        group: systmed-journal
+        mode: 2755
+      notify: Reiniciar_journald
+  handlers:
+    - name: Reiniciar_journald
+      service: name=systemd-journald state=restarted
+
+
+
+- stat: obtiene información del fichero o sistemas de ficheros.
+
+Obligatorios:
+  path=/directorio/fichero
+Opcionales
+  get_attributes=true/fase
+  get_checksum=true/fase
+  get_md5=true/fase
+  get_mime=true/fase
+
+ej:
+# Obtener info y guardarla
+- stat : path=/etc/services
+  register: datos
+# Mostrar info:
+- debug: var=datos
+# Usarlo en condición
+- debug: msg: "Es directorio"
+  when: datos.stat_isdir
