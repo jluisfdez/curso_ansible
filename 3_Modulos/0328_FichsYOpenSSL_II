@@ -78,7 +78,7 @@ Ej:
 
 
 
-- lineinfile:  Para encontrar lineas en ficheros
+- lineinfile:  Escribe o quita  lineas en ficheros
 Obligatorios:
   line="texto"
   dest=/directorio/fichero
@@ -91,3 +91,30 @@ Opcionales
   insertbefore=expresion
   regexp=expresion
   state=present/absent
+
+Ej: quita o pone segun elijas state.
+# cat  lineInFile.yml
+- name: Playbook para usar el modulo lineinfile
+  hosts: localhost
+  tasks:
+    - name: Prueba lineinfile
+      lineinfile: line="Canaledjas" dest=/tmp/iba.txt state=absent
+    - name: Uso de cat
+      command: cat /tmp/iba.txt
+      register: salida
+    - name: Visualizar variable
+      debug: var=salida.stdout_lines
+
+Ej: sustituye Canalejas por Wyomng 
+- name: Playbook para usar el modulo lineinfile
+  hosts: localhost
+  tasks:
+    - name: Prueba lineinfile
+      lineinfile: line="Wyoming" dest=/tmp/iba.txt regexp="^Canalejas"  state=present
+    - name: Uso de cat
+      command: cat /tmp/iba.txt
+      register: salida
+    - name: Visualizar variable
+      debug: var=salida.stdout_lines
+
+Ej:  dest=/etc/apache2/ports.conf regexp="^Listen" insertafter="Listen 80" line="Listen 8080"
