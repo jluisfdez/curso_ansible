@@ -139,3 +139,20 @@ Opcionales
 
 
 
+
+- openssl_privatekey:
+Obligatorios:
+  path=/directorio/fichero
+Opcionales
+  force=false/true
+  size=4096
+  state=present/absent
+  type=RSA/DSA
+
+- openssl_pubclickey:
+Obligatorios:
+  path=/directorio/fichero
+  privatekey_path=/ruta/fiechero.pem
+Opcionales
+  force=false/true
+  state=present/absent
