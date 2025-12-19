@@ -42,4 +42,4 @@ ej:
 - debug: var=datos
 # Usarlo en condición
 - debug: msg: "Es directorio"
-  when: datos.stat_isdir
+  when: datos.stat.isdir
