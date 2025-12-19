@@ -43,3 +43,35 @@ ej:
 # Usarlo en condición
 - debug: msg: "Es directorio"
   when: datos.stat.isdir
+
+
+- fetch:  Otra opcion para copiar
+Obligatorios:
+  src=/directorio/fichero
+  dest=/directorio/fichero
+Opcionales
+  fail_on_missing=no/yes
+  flat=no/yes
+
+#Por ejemplo esta tarea copia el interfaces pero con estructura de directorios 
+- name: Copiar config red usando fetch
+  fetch: src=/etc/network/interfaces dest=/tmp/backupRed/
+
+
+- unarchive:  Para descomprimir ficheros
+Obligatorios:
+  src=/directorio/fichero
+  dest=/directorio/fichero
+Opcionales
+  owner=usuario
+  group=grupo
+  mode=modo
+  remote_src=no/yes
+  list_files=no/yes
+
+Ej:
+- name : copia  y extrae
+  unarchive: src=oracle.tgz dest=/opt/oracle 
+ó
+- name : copia  y extrae que ya existe en nodo remoto
+  unarchive: src=/tmp/oracle.tgz dest=/opt/oracle remote_src=true
