@@ -75,3 +75,19 @@ Ej:
 ó
 - name : copia  y extrae que ya existe en nodo remoto
   unarchive: src=/tmp/oracle.tgz dest=/opt/oracle remote_src=true
+
+
+
+- lineinfile:  Para encontrar lineas en ficheros
+Obligatorios:
+  line="texto"
+  dest=/directorio/fichero
+Opcionales
+  owner=usuario
+  group=grupo
+  mode=modo
+  backup=no/yes
+  insertafter=expresion
+  insertbefore=expresion
+  regexp=expresion
+  state=present/absent
