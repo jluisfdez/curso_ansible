@@ -118,3 +118,24 @@ Ej: sustituye Canalejas por Wyomng
       debug: var=salida.stdout_lines
 
 Ej:  dest=/etc/apache2/ports.conf regexp="^Listen" insertafter="Listen 80" line="Listen 8080"
+
+
+
+
+
+- blockinfile:  Escribe o quita bloques de lineas en ficheros
+Obligatorios:
+  block="texto"
+  dest=/directorio/fichero
+Opcionales
+  owner=usuario
+  group=grupo
+  mode=modo
+  backup=no/yes
+  insertafter=expresion
+  insertbefore=expresion
+  marker=marcador
+  state=present/absent
+
+
+
