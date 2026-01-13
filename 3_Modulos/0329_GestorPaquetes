@@ -5,8 +5,19 @@ Gestor de paquetes para lenguajes de programación
 bower -  Admisntra paquetes para desarrollo web.
 bundler - Administra dependencias de Ruby gem
 composer - Gestiona librerias PHP
- cpanm - Gestiona librerias PERL (CPAN) 
- easy_install - Gestion modulos/librerias python
+
+cpanm - Gestiona librerias PERL (CPAN) 
+opciones
+from_path=ruta
+name=nombre
+localib=ruta
+mirror=mirror
+mirror_only=no/yes
+notest=no/yes
+version=version
+system_lib=directorio
+
+easy_install - Gestion modulos/librerias python
 gem - Administra Ruby gem
 maven_artifact -  Descarga artifacts desde un repositorio maven
 npm - gestiona paquetes node.js con npm
