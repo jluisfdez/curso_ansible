@@ -28,7 +28,7 @@ EJ:# cat moduloPKG_cpanm.yml
     - name: Instalar DBI
       cpanm: name=DBI
 
-easy_install - Gestion modulos/librerias python
+easy_install - Gestion modulos/librerias python (obsoleto, ya se usa directamente pip)
 Op. requeridas 
 name=nombre
 Opcionales
@@ -36,6 +36,20 @@ state=present/latest
 virtualenv=no/yes
 virtualenv_command=command
 executable=ruta_ejecucion
+
+EJ: NO FUNCIONA # cat  moduloPKG_easy_install.yml
+---
+- name: Trabajar con modulos de packaging easy_install (python)
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Instalar easy_install
+      apt: name=python-setuptools state=latest
+    - name: Instalar pip
+      easy_install: name=pip state=latest
+...
+
+
 
 gem - Administra Ruby gem
 maven_artifact -  Descarga artifacts desde un repositorio maven
