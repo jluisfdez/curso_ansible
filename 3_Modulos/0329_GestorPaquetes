@@ -17,4 +17,21 @@ pear - gestiona paquetes pear/pcl
 Gestor de paquetes para sistemas operativos
 apk - Gestion paquetes Android
 apt, apt.key o apt.repository - Gestiona apt (debian, ubuntu)
+dnf -  Gestion paquetes Fedora
+macports - Gestiona paquetes macports de OSX
+openbsd_pkg - Gestiona paquetes openbsd
+Opkg - Gestiona paquetes openwrt
+package  -  gestion de paquetes genericos (wrapper)
+pacman -  - Gestiona paquetes Arch linux
+pkg5- Gestiona paquetes solaris 11
+pkgin - Gestiona paquetes smartOS, netbsd  y otros
+pkgng  - Gestiona paquetes freebsd >= 9.0
+portage - Gestiona paquetes gentoo
+redhat_subscription - administras registro y subrcripciones usando el comando subscription-manager
+slackpkg  - Gestiona paquetes slackware >= 12.2
+swdepot - Gestiona paquetes HP-UX
+yum y yum.repository  - Gestiona paquetes yum (CentOS, RedHat, ...) 
+zypper y zypper.repository - Gestiona paquetes y repository suse/openSUSE
 
+
+Ej: cpanm
