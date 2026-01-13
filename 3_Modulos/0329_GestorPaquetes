@@ -17,7 +17,26 @@ notest=no/yes
 version=version
 system_lib=directorio
 
+EJ:# cat moduloPKG_cpanm.yml
+---
+- name: Trabajar con modulos de packaging CPANM
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Instalar CPANM
+      apt: name=cpanminus state=latest
+    - name: Instalar DBI
+      cpanm: name=DBI
+
 easy_install - Gestion modulos/librerias python
+Op. requeridas 
+name=nombre
+Opcionales
+state=present/latest
+virtualenv=no/yes
+virtualenv_command=command
+executable=ruta_ejecucion
+
 gem - Administra Ruby gem
 maven_artifact -  Descarga artifacts desde un repositorio maven
 npm - gestiona paquetes node.js con npm
