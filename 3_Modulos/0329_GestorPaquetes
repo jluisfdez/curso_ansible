@@ -1,0 +1,20 @@
+Módulos de Gestion de paquetes
+
+Gestor de paquetes para lenguajes de programación
+
+bower -  Admisntra paquetes para desarrollo web.
+bundler - Administra dependencias de Ruby gem
+composer - Gestiona librerias PHP
+ cpanm - Gestiona librerias PERL (CPAN) 
+ easy_install - Gestion modulos/librerias python
+gem - Administra Ruby gem
+maven_artifact -  Descarga artifacts desde un repositorio maven
+npm - gestiona paquetes node.js con npm
+pear - gestiona paquetes pear/pcl
+ pip - gestion libreriass/modulos python
+
+
+Gestor de paquetes para sistemas operativos
+apk - Gestion paquetes Android
+apt, apt.key o apt.repository - Gestiona apt (debian, ubuntu)
+
