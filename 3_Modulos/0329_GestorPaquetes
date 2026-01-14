@@ -38,7 +38,6 @@ virtualenv_command=command
 executable=ruta_ejecucion
 
 EJ: NO FUNCIONA # cat  moduloPKG_easy_install.yml
----
 - name: Trabajar con modulos de packaging easy_install (python)
   hosts: localhost
   connection: local
@@ -47,15 +46,25 @@ EJ: NO FUNCIONA # cat  moduloPKG_easy_install.yml
       apt: name=python-setuptools state=latest
     - name: Instalar pip
       easy_install: name=pip state=latest
-...
-
-
 
 gem - Administra Ruby gem
 maven_artifact -  Descarga artifacts desde un repositorio maven
 npm - gestiona paquetes node.js con npm
 pear - gestiona paquetes pear/pcl
- pip - gestion libreriass/modulos python
+ 
+
+pip - gestion libreriass/modulos python
+name=nombre
+state=present/latest/absent/forcereinstall
+virtualenv=no/yes
+virtualenv_command=command
+virtualenv_site_packages=no/yes
+executable=ruta_ejecucion
+requirements=fichero.txt
+version=version
+chdir=ruta
+
+
 
 
 Gestor de paquetes para sistemas operativos
