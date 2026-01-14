@@ -64,9 +64,6 @@ requirements=fichero.txt
 version=version
 chdir=ruta
 
-
-
-
 Gestor de paquetes para sistemas operativos
 apk - Gestion paquetes Android
 apt, apt.key o apt.repository - Gestiona apt (debian, ubuntu)
