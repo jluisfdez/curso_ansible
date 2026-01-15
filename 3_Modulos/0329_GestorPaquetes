@@ -79,19 +79,6 @@ dest=/ruta/fichero_deb
 autoremove=no/yes
 default_release=release
 
-Ej: # cat  moduloPKG_apt.yml
----
-- name: Trabajar con modulos de packaging de SO (apt)
-  hosts: localhost
-  connection: local
-  tasks:
-    - name: Actualizar lista de paquetes
-      apt: update_cache=yes
-        #     - name: Actualizar distribucion
-      #      apt: upgrade=dist
-    - name: Instalar nginx
-      apt: 
-
 apt_key
 data=clave
 file=fichero
@@ -102,6 +89,22 @@ state=present/absent
 url=direccion
 validate_certs=yes/no
 
+EJ: # cat moduloPKG_apt.yml
+---
+- name: Trabajar con modulos de packaging de SO (apt)
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Actualizar lista de paquetes
+      apt: update_cache=yes
+        #     - name: Actualizar distribucion
+      #      apt: upgrade=dist
+    - name: Instalar nginx
+      apt: name=nginx state=absent
+    - name: Añadir clave apt
+      apt_key:
+        url: "https://ftp-master.debian.org/keys/archive-key-6.0.asc"
+       
 
 dnf -  Gestion paquetes Fedora
 macports - Gestiona paquetes macports de OSX
