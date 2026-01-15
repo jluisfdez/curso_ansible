@@ -67,6 +67,8 @@ chdir=ruta
 Gestor de paquetes para sistemas operativos
 
 apk - Gestion paquetes Android
+
+apt, apt.key o apt.repository - Gestiona apt (debian, ubuntu)
 name=nombre [=version]
 state=present/latest/absent/build-dep
 upgrade=no/yes/[safe/full/dist]
@@ -77,9 +79,20 @@ dest=/ruta/fichero_deb
 autoremove=no/yes
 default_release=release
 
+Ej: # cat  moduloPKG_apt.yml
+---
+- name: Trabajar con modulos de packaging de SO (apt)
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Actualizar lista de paquetes
+      apt: update_cache=yes
+        #     - name: Actualizar distribucion
+      #      apt: upgrade=dist
+    - name: Instalar nginx
+      apt: 
 
 
-apt, apt.key o apt.repository - Gestiona apt (debian, ubuntu)
 dnf -  Gestion paquetes Fedora
 macports - Gestiona paquetes macports de OSX
 openbsd_pkg - Gestiona paquetes openbsd
