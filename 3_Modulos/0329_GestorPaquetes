@@ -92,6 +92,16 @@ Ej: # cat  moduloPKG_apt.yml
     - name: Instalar nginx
       apt: 
 
+apt_key
+data=clave
+file=fichero
+id=identificador
+keyring=/ruta/trusted.gpd/
+keyserver=servidor
+state=present/absent
+url=direccion
+validate_certs=yes/no
+
 
 dnf -  Gestion paquetes Fedora
 macports - Gestiona paquetes macports de OSX
