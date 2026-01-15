@@ -65,7 +65,20 @@ version=version
 chdir=ruta
 
 Gestor de paquetes para sistemas operativos
+
 apk - Gestion paquetes Android
+name=nombre [=version]
+state=present/latest/absent/build-dep
+upgrade=no/yes/[safe/full/dist]
+force=no/yes
+update_cache=no/yes
+purge=no/yes
+dest=/ruta/fichero_deb
+autoremove=no/yes
+default_release=release
+
+
+
 apt, apt.key o apt.repository - Gestiona apt (debian, ubuntu)
 dnf -  Gestion paquetes Fedora
 macports - Gestiona paquetes macports de OSX
